@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 /// https://tailwindcss.com/docs/customizing-colors
 
 const int _primaryColor = 0xFF6366F1;
+const Color secondaryColor = Colors.amberAccent;
 const MaterialColor primarySwatch = MaterialColor(_primaryColor, <int, Color>{
   50: Color(0xFFEEF2FF), // indigo-50
   100: Color(0xFFE0E7FF), // indigo-100
@@ -63,7 +64,6 @@ final ColorScheme darkColorScheme = ColorScheme.dark(
 final ThemeData lightTheme = ThemeData(
   colorScheme: lightColorScheme,
   fontFamily: 'Nunito',
-  toggleableActiveColor: primarySwatch.shade500,
   textTheme: TextTheme(
     displayLarge: TextStyle(
       color: textSwatch.shade700,
@@ -126,11 +126,57 @@ final ThemeData lightTheme = ThemeData(
       fontFamily: 'Nunito',
     ),
   ),
+  inputDecorationTheme: inputDecorationTheme,
+  checkboxTheme: CheckboxThemeData(
+    fillColor:
+        MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.disabled)) {
+        return null;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return primarySwatch.shade500;
+      }
+      return null;
+    }),
+  ),
+  radioTheme: RadioThemeData(
+    fillColor:
+        MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.disabled)) {
+        return null;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return primarySwatch.shade500;
+      }
+      return null;
+    }),
+  ),
+  switchTheme: SwitchThemeData(
+    thumbColor:
+        MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.disabled)) {
+        return null;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return primarySwatch.shade500;
+      }
+      return null;
+    }),
+    trackColor:
+        MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.disabled)) {
+        return null;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return primarySwatch.shade500;
+      }
+      return null;
+    }),
+  ),
 );
 
 final ThemeData darkTheme = lightTheme.copyWith(
   colorScheme: darkColorScheme,
-  toggleableActiveColor: primarySwatch.shade500,
   textTheme: TextTheme(
     displayLarge: TextStyle(
       color: textSwatch.shade200,
@@ -192,5 +238,97 @@ final ThemeData darkTheme = lightTheme.copyWith(
       color: textSwatch.shade400,
       fontFamily: 'Nunito',
     ),
+  ),
+  checkboxTheme: CheckboxThemeData(
+    fillColor:
+        MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.disabled)) {
+        return null;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return primarySwatch.shade500;
+      }
+      return null;
+    }),
+  ),
+  inputDecorationTheme: inputDecorationTheme,
+  radioTheme: RadioThemeData(
+    fillColor:
+        MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.disabled)) {
+        return null;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return primarySwatch.shade500;
+      }
+      return null;
+    }),
+  ),
+  switchTheme: SwitchThemeData(
+    thumbColor:
+        MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.disabled)) {
+        return null;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return primarySwatch.shade500;
+      }
+      return null;
+    }),
+    trackColor:
+        MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.disabled)) {
+        return null;
+      }
+      if (states.contains(MaterialState.selected)) {
+        return primarySwatch.shade500;
+      }
+      return null;
+    }),
+  ),
+);
+
+final InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
+  labelStyle: TextStyle(
+    color: textSwatch.shade500,
+    fontFamily: 'Nunito',
+  ),
+  hintStyle: TextStyle(
+    color: textSwatch.shade400,
+    fontFamily: 'Nunito',
+  ),
+  errorStyle: const TextStyle(
+    color: errorColor,
+    fontFamily: 'Nunito',
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(
+      color: textSwatch.shade300,
+    ),
+    borderRadius: BorderRadius.circular(5.5),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(
+      color: textSwatch.shade300,
+    ),
+    borderRadius: BorderRadius.circular(5.5),
+  ),
+  border: OutlineInputBorder(
+    borderSide: BorderSide(
+      color: textSwatch.shade300,
+    ),
+    borderRadius: BorderRadius.circular(5.5),
+  ),
+  errorBorder: OutlineInputBorder(
+    borderSide: const BorderSide(
+      color: errorColor,
+    ),
+    borderRadius: BorderRadius.circular(5.5),
+  ),
+  focusedErrorBorder: OutlineInputBorder(
+    borderSide: const BorderSide(
+      color: errorColor,
+    ),
+    borderRadius: BorderRadius.circular(5.5),
   ),
 );

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:goo_proper/ui/widgets/header.dart';
+import 'package:goo_proper/ui/widgets/second_screen/grid_item.dart';
+import 'package:goo_proper/ui/widgets/second_screen/link_card.dart';
+import 'package:goo_proper/ui/widgets/second_screen/text_divider.dart';
 import 'package:ionicons/ionicons.dart';
-
-import '../widgets/header.dart';
-import '../widgets/second_screen/grid_item.dart';
-import '../widgets/second_screen/link_card.dart';
-import '../widgets/second_screen/text_divider.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});

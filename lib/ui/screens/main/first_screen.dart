@@ -1,11 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:goo_proper/ui/screens/auth/login_screen.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../widgets/first_screen/info_card.dart';
-import '../widgets/first_screen/theme_card.dart';
-import '../widgets/header.dart';
+import 'package:goo_proper/ui/widgets/first_screen/info_card.dart';
+import 'package:goo_proper/ui/widgets/first_screen/theme_card.dart';
+import 'package:goo_proper/ui/widgets/header.dart';
 
 class FirstScreen extends ConsumerWidget {
   const FirstScreen({super.key});
@@ -19,6 +21,9 @@ class FirstScreen extends ConsumerWidget {
           physics: const BouncingScrollPhysics(),
           children: <Widget>[
             const Header(text: 'app_name'),
+            ElevatedButton(
+                onPressed: () => context.push(LoginScreen.route),
+                child: const Text("go login")),
 
             Card(
               elevation: 2,
